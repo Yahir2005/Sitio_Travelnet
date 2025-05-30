@@ -1,0 +1,17 @@
+CREATE TABLE Quejas(
+    QuejasId INTEGER NOT NULL AUTO_INCREMENT,
+    Nombre VARCHAR(50) NOT NULL,
+    Correo VARCHAR(50) NOT NULL,
+    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Mensaje TEXT NOT NULL,
+    Direccion VARCHAR (70) NOT NULL,
+    PRIMARY KEY(QuejasId)
+); 
+CREATE TABLE Administrador(
+    AdministradorId NOT NULL AUTO_INCREMENT,
+    Nombre VARCHAR(50) NOT NULL,
+    Correo VARCHAR(50) NOT NULL,
+    Password VARCHAR(50) NOT NULL,
+    Fecha_Creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(AdministradorId)
+);
