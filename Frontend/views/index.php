@@ -50,16 +50,16 @@
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Principal <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.php">Principal <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> Acerca de Nosotros </a>
+                  <a class="nav-link" href="about.php"> Acerca de Nosotros </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Nuestros Servicios </a>
+                  <a class="nav-link" href="service.php"> Nuestros Servicios </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contactanos</a>
+                  <a class="nav-link" href="contact.php">Contactanos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Login</a>
