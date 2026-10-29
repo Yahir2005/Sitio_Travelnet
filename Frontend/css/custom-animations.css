@@ -1,0 +1,453 @@
+/* ========================================================
+   TRAVELNET - Animaciones y Mejoras del Navbar
+   ======================================================== */
+
+/* Desplazamiento suave general */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensación de desplazamiento para que el navbar sticky no tape los títulos */
+section[id],
+div[id],
+.layout_padding[id] {
+  scroll-margin-top: 85px;
+}
+
+/* ========================================================
+   1. NAVBAR MEJORADO Y FIJO (STICKY NAVBAR)
+   ======================================================== */
+
+.header_section {
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+  background-color: rgba(12, 17, 24, 0.96) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+.header_section.scrolled {
+  background-color: rgba(8, 12, 18, 0.98) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Marca / Logotipo */
+.navbar-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.navbar-brand span {
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Enlaces del Navbar */
+.custom_nav-container .navbar-nav .nav-item {
+  margin: 0 4px;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+  color: #e2e8f0 !important;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 18px !important;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Línea animada inferior en hover y activo */
+.custom_nav-container .navbar-nav .nav-item .nav-link::before {
+  display: none !important;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9bc154, #48bb78);
+  border-radius: 4px;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link:hover,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  color: #9bc154 !important;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link:hover::after,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link::after {
+  width: 65%;
+}
+
+/* Botón Call To Action (WhatsApp / Contactar) */
+.btn-nav-cta {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none !important;
+}
+
+.btn-nav-cta:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+  color: #ffffff !important;
+}
+
+.nav-wa-icon {
+  width: 18px;
+  height: 18px;
+  animation: pulse-wa 2.2s infinite ease-in-out;
+}
+
+@keyframes pulse-wa {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+/* Botón Hamburguesa en Móviles */
+.custom_nav-container .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.custom_nav-container .navbar-toggler:hover,
+.custom_nav-container .navbar-toggler:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: rgba(14, 20, 30, 0.98);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .custom_nav-container .navbar-nav .nav-item .nav-link {
+    padding: 12px 15px !important;
+    text-align: center;
+  }
+
+  .nav-cta-box {
+    margin-top: 15px;
+  }
+}
+
+/* ========================================================
+   2. ANIMACIÓN DE BAJADA Y EFECTO EN SECCIÓN OBJETIVO
+   ======================================================== */
+
+/* Indicador animado de bajada en el Hero */
+.scroll-down-wrapper {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.scroll-down-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: #014e86 !important;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.scroll-down-link:hover {
+  opacity: 1;
+  color: #9bc154 !important;
+  transform: translateY(3px);
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid #014e86;
+  border-radius: 14px;
+  position: relative;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.scroll-down-link:hover .scroll-mouse {
+  border-color: #9bc154;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background-color: #9bc154;
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  animation: mouseWheel 1.6s infinite ease-in-out;
+}
+
+@keyframes mouseWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+/* Efecto de foco cuando aterriza en la sección */
+@keyframes sectionHighlight {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(155, 193, 84, 0);
+  }
+  30% {
+    box-shadow: inset 0 0 0 3px rgba(155, 193, 84, 0.4);
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 rgba(155, 193, 84, 0);
+  }
+}
+
+.section-focused {
+  animation: sectionHighlight 1.4s ease-out;
+  border-radius: 8px;
+}
+
+/* ========================================================
+   3. ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER)
+   ======================================================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-on-scroll.fade-up {
+  transform: translateY(35px);
+}
+
+.animate-on-scroll.fade-left {
+  transform: translateX(-40px);
+}
+
+.animate-on-scroll.fade-right {
+  transform: translateX(40px);
+}
+
+.animate-on-scroll.scale-up {
+  transform: scale(0.92);
+}
+
+/* Estado activo cuando entra en pantalla */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Retardos escalonados para listas y tarjetas (stagger effect) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ========================================================
+   4. EFECTOS HOVER Y ANIMACIONES EN TARJETAS Y ELEMENTOS
+   ======================================================== */
+
+/* Tarjetas de servicios */
+.service_section .box {
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+
+.service_section .box:hover {
+  transform: translateY(-9px) !important;
+  box-shadow: 0 16px 35px rgba(1, 78, 134, 0.18) !important;
+}
+
+.service_section .box .img-box {
+  overflow: hidden;
+}
+
+.service_section .box .img-box img {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.service_section .box:hover .img-box img {
+  transform: scale(1.08) !important;
+}
+
+/* Tarjetas de paquetes de internet */
+#packages .box {
+  border: 2px solid #eef2f6 !important;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border-radius: 14px !important;
+  padding: 20px 15px !important;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+#packages .box:hover {
+  transform: translateY(-9px) !important;
+  border-color: #9bc154 !important;
+  box-shadow: 0 18px 35px rgba(155, 193, 84, 0.22) !important;
+}
+
+#packages .box h6 {
+  color: #014e86;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+#packages .box:hover h6 {
+  color: #9bc154;
+}
+
+/* Cajas de pasos de trabajo */
+.work_section .box {
+  transition: all 0.35s ease;
+}
+
+.work_section .box:hover {
+  transform: translateY(-8px) scale(1.04);
+}
+
+.work_section .box .img-box img {
+  transition: transform 0.3s ease;
+}
+
+.work_section .box:hover .img-box img {
+  transform: scale(1.12);
+}
+
+/* Redes sociales flotantes en footer */
+.social-box a {
+  display: inline-block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.social-box a:hover {
+  transform: translateY(-4px) scale(1.15);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+/* Subtítulos de sección mejorados */
+.section_subtitle {
+  color: #014e86;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* ========================================================
+   5. BOTÓN FLOTANTE "VOLVER ARRIBA" (BACK TO TOP)
+   ======================================================== */
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #014e86, #026bb8);
+  color: #ffffff !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 18px rgba(1, 78, 134, 0.4);
+  text-decoration: none !important;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn:hover {
+  background: linear-gradient(135deg, #9bc154, #7ca835);
+  box-shadow: 0 8px 25px rgba(155, 193, 84, 0.5);
+  transform: translateY(-4px) scale(1.08);
+}
+
+/* ========================================================
+   6. RESPONSIVIDAD Y AJUSTES DE TEXTO
+   ======================================================== */
+
+@media (max-width: 768px) {
+  .Texto_Relleno {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+
+  .scroll-down-wrapper {
+    display: none;
+  }
+
+  .map-container iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
